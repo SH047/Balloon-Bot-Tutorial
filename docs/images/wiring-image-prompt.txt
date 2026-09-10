@@ -1,0 +1,19 @@
+Use case: scientific-educational
+Asset type: GitHub tutorial wiring reference, landscape high-resolution infographic.
+Title: "BALLOON BOT • WIRING REFERENCE"
+Create an accurate, clean engineering wiring illustration using simplified labeled module blocks, tidy right-angle wires, white background, large legible typography. This is a functional schematic, not a physical board pin-position map. Put this subtitle: "Matches the supplied sketches • Motor A = RIGHT • Motor B = LEFT".
+Upper half: ESP32 block at left and L298N block at center, two DC motors at right. Six separate horizontal color-coded wires with endpoints explicitly labeled exactly:
+GPIO 13 → IN1
+GPIO 26 → IN2
+GPIO 32 → ENA (PWM)
+GPIO 14 → IN3
+GPIO 27 → IN4
+GPIO 33 → ENB (PWM)
+L298N OUT1 and OUT2 each connect to one terminal of Motor A — RIGHT.
+L298N OUT3 and OUT4 each connect to one terminal of Motor B — LEFT.
+Callout by ENA/ENB: "REMOVE ENA + ENB JUMPERS".
+Lower-left power section: one 12V battery with + and − terminals; battery + branches to L298N 12V / VS and buck IN+. Battery − joins common ground, L298N GND and buck IN−. Buck block reads "BUCK CONVERTER • SET TO 5.0V". Buck OUT+ connects directly to ESP32 5V input (never 3V3); buck OUT− connects ESP32 GND and the common ground. Clearly draw one polarized electrolytic capacitor C1 as a branch ACROSS the +5V and GND rails near ESP32, with "+" marked on its +5V terminal and "−" on GND terminal. Label "C1 1000 µF / 10V or higher" and "Parallel across 5V and GND • close to ESP32". Capacitor is NOT in series. Red +5V wire remains continuous to ESP32. Black common-ground wire remains continuous. Use explicit net labels if needed to avoid crossing.
+L298N 5V terminal ends unconnected, labeled "5V: NO CONNECTION*". Footnote: "*Onboard 5V regulator enabled only when module and battery voltage allow; see tutorial."
+Lower-right clearly boxed electrically isolated circuit: "SEPARATE 18650 MOTOR CIRCUIT". One protected 18650 cell symbol, "+" connects to an SPST on/off switch, then auxiliary DC motor positive; motor negative returns to cell "−" in a complete loop. Text: "18650: 3.7V nominal / 4.2V full". "Manual switch only • no ESP32 connection". No wires or ground symbols connecting this circuit to main circuit. Use a motor rated for this voltage. Add label "Match motor, switch and cell current ratings".
+Footer: "Functional connections only — verify your board labels. Disconnect external 5V while using USB."
+Critical: include all six correct GPIO pairs; all motor terminals connected; show capacitor polarity and parallel branch unambiguously; keep auxiliary battery isolated; no decorative extra wires.
