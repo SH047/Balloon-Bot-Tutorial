@@ -1,6 +1,6 @@
 # ESP32 Balloon Bot: wiring and setup
 
-This written companion follows the two original sketches and the [code-training recording](../Ballon%20bot%20Code%20training%20.mov). It adds the requested 1000 µF capacitor and a separate, manually switched 18650 motor circuit.
+This written companion follows the two original sketches and the [code-training recording](../videos/Ballon%20bot%20Code%20training%20.mov). It adds the requested 1000 µF capacitor and a separate, manually switched 18650 motor circuit.
 
 ## 1. Parts
 
